@@ -1,0 +1,28 @@
+{
+  "name": "image-filter-grayscale",
+  "version": "0.0.1",
+  "description": "Small library to apply a grayscale transformation to a image",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify sandbox/sandbox.js > sandbox/bundle.js"
+  },
+  "author": "Ricardo Canastro",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/canastro/image-filter-grayscale"
+  },
+  "bugs": {
+    "url": "https://github.com/canastro/image-filter-grayscale/issues"
+  },
+  "keywords": [
+    "image",
+    "image-filter-grayscale",
+    "grayscale",
+    "transformation",
+    "pixel"
+  ],
+  "devDependencies": {
+    "browserify": "^13.0.0"
+  }
+}
