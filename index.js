@@ -1,3 +1,9 @@
+function copyImageData(ctx, src) {
+    var dst = ctx.createImageData(src.width, src.height);
+    dst.data.set(src.data);
+    return dst;
+}
+
 function transform(canvas, context, imageData) {
     var data = imageData.data;
 
@@ -30,6 +36,8 @@ module.exports = function grayScale(options) {
     if (!options.data) {
         throw new Error('image-grayscale:: invalid options provided');
     }
+
+    options.data = copyImageData(context, options.data);
 
     return transform(canvas, context, options.data);
 }
