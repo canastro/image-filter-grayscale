@@ -1,10 +1,37 @@
-function copyImageData(ctx, src) {
-    var dst = ctx.createImageData(src.width, src.height);
-    dst.data.set(src.data);
-    return dst;
+/**
+ * @name getCanvas
+ * @param {number} w - width
+ * @param {number} h - height
+ * Create a canvas with the currect size
+ */
+function getCanvas(w, h) {
+    var canvas = document.createElement('canvas');
+    canvas.width = w;
+    canvas.height = h;
+
+    return canvas;
 }
 
-function transform(canvas, context, imageData) {
+/**
+ * @name getPixels
+ * @param {object} canvas
+ * @param {object} context
+ * @param {object} imageData
+ * Get a deep copy of the image data so we don't change the original imageData
+ */
+function getPixels(canvas, context, imageData) {
+    context.putImageData(imageData, 0, 0);
+    return context.getImageData(0, 0, canvas.width, canvas.height);
+}
+
+/**
+ * @name transform
+ * @param {object} canvas
+ * @param {object} context
+ * @param {object} imageData
+ * Iterate over the array applying the grayscale transformation
+ */
+ function transform(canvas, context, imageData) {
     var data = imageData.data;
 
     for (var i = 0; i < data.length; i += 4) {
@@ -30,14 +57,17 @@ module.exports = function grayScale(options) {
     var element;
     var data;
     var factor
-    var canvas = document.createElement('canvas');
-    var context = canvas.getContext('2d');
+    var canvas;
+    var context;
 
     if (!options.data) {
         throw new Error('image-grayscale:: invalid options provided');
     }
 
-    options.data = copyImageData(context, options.data);
+    canvas = getCanvas(options.data.width, options.data.height);
+    context = canvas.getContext('2d');
+
+    options.data = getPixels(canvas, context, options.data);
 
     return transform(canvas, context, options.data);
 }

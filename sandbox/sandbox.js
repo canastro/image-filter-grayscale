@@ -13,10 +13,14 @@ function applyResults(selector, src) {
 
 window.onload = function () {
 
-    var canvas = document.createElement('canvas');
-    var context = canvas.getContext('2d');
+    var canvas;
+    var context;
     var img = new Image;
     img.onload = function(){
+        var canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        var context = canvas.getContext('2d');
         context.drawImage(img,0,0);
 
         var data = context.getImageData(0, 0, img.width, img.height);
