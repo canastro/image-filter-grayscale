@@ -26,9 +26,10 @@ window.onload = function () {
         var data = context.getImageData(0, 0, img.width, img.height);
 
         var results1 = imageGrayscale({
-            data: data
+            data: data,
+            asDataURL: true
         });
         applyResults('#target-1', results1);
     };
-    img.src = "http://lorempixel.com/400/200";
+    img.src = "dummy.jpg";
 }
