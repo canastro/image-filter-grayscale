@@ -1,3 +1,6 @@
+![build status](https://travis-ci.org/canastro/image-filter-grayscale.svg?branch=master)
+[![npm version](https://badge.fury.io/js/image-filter-grayscale.svg)](https://badge.fury.io/js/image-filter-grayscale)
+
 # image-filter-grayscale
 
 Small library to apply a grayscale transformation to a image.

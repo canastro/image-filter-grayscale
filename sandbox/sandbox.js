@@ -1,4 +1,4 @@
-var imageGrayscale = require('../index');
+var imageGrayscale = require('../src/index');
 
 function applyResults(selector, src) {
     var target;
