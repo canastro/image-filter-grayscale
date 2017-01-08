@@ -1,6 +1,6 @@
 {
   "name": "image-filter-grayscale",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Small library to apply a grayscale transformation to a image",
   "main": "src/index.js",
   "scripts": {

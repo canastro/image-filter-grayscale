@@ -12,5 +12,5 @@ module.exports =  function grayscale(data, nWorkers) {
         throw new Error('image-filter-grayscale:: invalid options provided');
     }
 
-    return imageFilterCore.apply(data, transform, nWorkers);
+    return imageFilterCore.apply(data, transform, null, nWorkers);
 };
